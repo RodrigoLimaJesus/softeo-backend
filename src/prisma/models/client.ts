@@ -11,56 +11,32 @@ export default class Client {
   }
 
   public async create(userData: IClient) {
-    try {
-      await this._prisma.$connect();
+    await this._prisma.$connect();
 
-      const insertData = await this._model.create({ data: { ...userData } });
+    const insertData = await this._model.create({ data: { ...userData } });
 
-      await this._prisma.$disconnect();
+    await this._prisma.$disconnect();
 
-      return insertData;
-    } catch (error) {
-      console.log(error);
-
-      await this._prisma.$disconnect();
-
-      return { message: 'Algum erro aconteceu' };
-    }
+    return insertData;
   }
 
   public async getAll() {
-    try {
-      await this._prisma.$connect();
+    await this._prisma.$connect();
 
-      const allUsers = await this._model.findMany();
+    const allUsers = await this._model.findMany();
 
-      await this._prisma.$disconnect();
+    await this._prisma.$disconnect();
 
-      return allUsers;
-    } catch (error) {
-      console.log(error);
-
-      await this._prisma.$disconnect();
-
-      return { message: 'Algum erro aconteceu' };
-    }
+    return allUsers;
   }
 
   public async getOneByCpf(cpf: string) {
-    try {
-      await this._prisma.$connect();
+    await this._prisma.$connect();
 
-      const allUsers = await this._model.findUnique({ where: { cpf } });
+    const oneUser = await this._model.findUnique({ where: { cpf } });
 
-      await this._prisma.$disconnect();
+    await this._prisma.$disconnect();
 
-      return allUsers;
-    } catch (error) {
-      console.log(error);
-
-      await this._prisma.$disconnect();
-
-      return { message: 'Algum erro aconteceu' };
-    }
+    return oneUser;
   }
 }

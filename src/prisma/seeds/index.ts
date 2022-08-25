@@ -6,8 +6,8 @@ async function generateSeeds() {
   await prisma.$connect();
 
   try {
-    await prisma.client.deleteMany();
     await prisma.installments.deleteMany();
+    await prisma.client.deleteMany();
 
     const clientOne = await prisma.client.create({
       data: {
