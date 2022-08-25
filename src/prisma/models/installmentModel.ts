@@ -1,11 +1,10 @@
 import { PrismaClient } from '@prisma/client';
 import IInstallment from '../../interfaces/installment';
 
-export default class Installment {
+export default class InstallmentModel {
   private _model;
-  private _prisma;
 
-  constructor(_prisma = new PrismaClient()) {
+  constructor(private _prisma = new PrismaClient()) {
     this._prisma = _prisma;
     this._model = _prisma.installment;
   }
