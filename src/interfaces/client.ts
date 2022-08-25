@@ -1,4 +1,4 @@
-import IInstallments from './installments';
+import IInstallment from './installment';
 
 export default interface IClient {
   id: number;
@@ -6,5 +6,5 @@ export default interface IClient {
   name: string;
   email: string;
   cellNumber: string;
-  installments?: IInstallments[];
+  installments?: IInstallment[];
 }

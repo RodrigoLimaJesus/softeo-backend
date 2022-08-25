@@ -8,15 +8,15 @@ datasource db {
 }
 
 model Client {
-  id           Int            @id @default(autoincrement())
-  cpf          String         @unique
+  id           Int           @id @default(autoincrement())
+  cpf          String        @unique
   name         String
   email        String
-  cellNumber   String         @map("cell_number")
-  installments Installments[]
+  cellNumber   String        @map("cell_number")
+  installments Installment[]
 }
 
-model Installments {
+model Installment {
   id          Int      @id @default(autoincrement())
   clientId    Int      @map("client_id")
   client      Client   @relation(fields: [clientId], references: [id])

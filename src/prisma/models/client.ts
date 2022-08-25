@@ -2,8 +2,8 @@ import { PrismaClient } from '@prisma/client';
 import IClient from '../../interfaces/client';
 
 export default class Client {
-  _model;
-  _prisma;
+  private _model;
+  private _prisma;
 
   constructor(_prisma = new PrismaClient()) {
     this._prisma = _prisma;

@@ -6,8 +6,10 @@ async function generateSeeds() {
   await prisma.$connect();
 
   try {
-    await prisma.installments.deleteMany();
+    await prisma.installment.deleteMany();
     await prisma.client.deleteMany();
+
+    const today = new Date();
 
     const clientOne = await prisma.client.create({
       data: {
@@ -18,18 +20,18 @@ async function generateSeeds() {
       },
     });
 
-    await prisma.installments.createMany({
+    await prisma.installment.createMany({
       data: [
         {
           clientId: clientOne.id,
           itsPaid: false,
-          paymentDate: new Date(),
+          paymentDate: new Date(today.setDate(today.getDate() + 30)),
           price: 100,
         },
         {
           clientId: clientOne.id,
           itsPaid: false,
-          paymentDate: new Date(),
+          paymentDate: new Date(today.setDate(today.getDate() + 60)),
           price: 100,
         },
       ],
@@ -44,18 +46,24 @@ async function generateSeeds() {
       },
     });
 
-    await prisma.installments.createMany({
+    await prisma.installment.createMany({
       data: [
         {
           clientId: clientTwo.id,
           itsPaid: false,
-          paymentDate: new Date(),
+          paymentDate: new Date(today.setDate(today.getDate() - 30)),
           price: 150,
         },
         {
           clientId: clientTwo.id,
           itsPaid: false,
-          paymentDate: new Date(),
+          paymentDate: today,
+          price: 150,
+        },
+        {
+          clientId: clientTwo.id,
+          itsPaid: false,
+          paymentDate: new Date(today.setDate(today.getDate() + 30)),
           price: 150,
         },
       ],

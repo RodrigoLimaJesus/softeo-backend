@@ -1,6 +1,6 @@
 import IClient from './client';
 
-export default interface IInstallments {
+export default interface IInstallment {
   id?: number;
   clientId: number;
   client?: IClient;
