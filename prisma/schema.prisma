@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,22 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model Client {
+  id           Int            @id @default(autoincrement())
+  cpf          String         @unique
+  name         String
+  email        String
+  cellNumber   String         @map("cell_number")
+  installments Installments[]
+}
+
+model Installments {
+  id          Int      @id @default(autoincrement())
+  clientId    Int      @map("client_id")
+  client      Client   @relation(fields: [clientId], references: [id])
+  price       Float
+  paymentDate DateTime @map("payment_date")
+  itsPaid     Boolean  @map("its_paid")
 }
