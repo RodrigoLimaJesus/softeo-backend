@@ -22,5 +22,5 @@ model Installments {
   client      Client   @relation(fields: [clientId], references: [id])
   price       Float
   paymentDate DateTime @map("payment_date")
-  itsPaid     Boolean  @map("its_paid")
+  itsPaid     Boolean  @default(false) @map("its_paid")
 }
