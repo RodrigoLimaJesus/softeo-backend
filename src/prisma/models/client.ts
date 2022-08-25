@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import IClient from '../../src/interfaces/client';
+import IClient from '../../interfaces/client';
 
 export default class Client {
   _model;
