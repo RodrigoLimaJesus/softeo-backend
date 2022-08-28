@@ -5,6 +5,39 @@ const errors = {
     message: 'Cliente não encontrado',
     code: 404,
   },
+  nameNotProvided: {
+    message: 'Nome do cliente não informado',
+    code: 400,
+  },
+  nameInvalidLength: {
+    message: 'Nome do cliente deve conter pelo menos 3 caracteres',
+    code: 400,
+  },
+  cpfNotProvided: {
+    message: 'CPF do cliente não informado',
+    code: 400,
+  },
+  cpfInvalidLength: {
+    message: 'CPF do cliente deve conter 11 caracteres',
+    code: 400,
+  },
+  emailNotProvided: {
+    message: 'Email do cliente não informado',
+    code: 400,
+  },
+  emailInvalidFormat: {
+    message: 'Email do cliente deve conter: "@", ".com"',
+    code: 400,
+  },
+  cellNumberNotProvided: {
+    message: 'Número de telefone do cliente não informado',
+    code: 400,
+  },
+  cellNumberInvalidLength: {
+    message:
+      'Número de telefone do cliente deve conter 11 caracteres,incluindo DDD',
+    code: 400,
+  },
 };
 
 export default (
