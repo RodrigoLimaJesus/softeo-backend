@@ -3,7 +3,6 @@ import ClientController from '../controllers/clientController';
 import ClientMiddleware from '../middlewares/clientMiddleware';
 
 const clientRouter = Router();
-
 const clientController = new ClientController();
 const clientMiddleware = new ClientMiddleware();
 

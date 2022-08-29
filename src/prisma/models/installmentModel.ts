@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import IInstallment from '../../interfaces/installment';
+import IDateFilter from '../../interfaces/dateFilter';
 
 export default class InstallmentModel {
   private _model;
@@ -9,33 +9,26 @@ export default class InstallmentModel {
     this._model = _prisma.installment;
   }
 
-  public async createMany(installments: IInstallment[]) {
+  getAll = async ({ startDate, endDate }: IDateFilter) => {
     await this._prisma.$connect();
 
-    const insertData = await this._model.createMany({ data: installments });
+    let start = undefined;
+    let end = undefined;
 
-    await this._prisma.$disconnect();
+    if (startDate) {
+      start = new Date(startDate);
+    }
 
-    return insertData;
-  }
+    if (endDate) {
+      end = new Date(endDate);
+    }
 
-  public async getAll() {
-    await this._prisma.$connect();
-
-    const allInstallments = await this._model.findMany();
+    const allInstallments = await this._model.findMany({
+      where: { paymentDate: { gte: start, lte: end } },
+    });
 
     await this._prisma.$disconnect();
 
     return allInstallments;
-  }
-
-  public async getOneByUserId(clientId: number) {
-    await this._prisma.$connect();
-
-    const installments = await this._model.findMany({ where: { clientId } });
-
-    await this._prisma.$disconnect();
-
-    return installments;
-  }
+  };
 }
