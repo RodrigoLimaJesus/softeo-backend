@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import IDateFilter from '../../interfaces/dateFilter';
+import IInstallment from '../../interfaces/installment';
 
 export default class InstallmentModel {
   private _model;
@@ -26,6 +27,16 @@ export default class InstallmentModel {
     const allInstallments = await this._model.findMany({
       where: { paymentDate: { gte: start, lte: end } },
     });
+
+    await this._prisma.$disconnect();
+
+    return allInstallments;
+  };
+
+  createMany = async (installments: IInstallment[]) => {
+    await this._prisma.$connect();
+
+    const allInstallments = this._model.createMany({ data: installments });
 
     await this._prisma.$disconnect();
 

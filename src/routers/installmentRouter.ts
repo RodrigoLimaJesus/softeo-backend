@@ -6,4 +6,6 @@ const installmentController = new InstallmentController();
 
 installmentRouter.get('/all', installmentController.getAll);
 
+installmentRouter.post('/create', installmentController.createMany);
+
 export default installmentRouter;

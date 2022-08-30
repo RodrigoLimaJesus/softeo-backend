@@ -38,6 +38,10 @@ const errors = {
       'Número de telefone do cliente deve conter 11 caracteres,incluindo DDD',
     code: 400,
   },
+  invalidInstallmentsNumber: {
+    message: 'O número de parcelas tem que ser maior que 1',
+    code: 400,
+  },
 };
 
 export default (
@@ -53,6 +57,8 @@ export default (
     const { code, message } = personalError;
     return res.status(code).json({ message });
   }
+
+  console.log(err.message);
 
   return res.status(500).json({ message: 'Erro inesperado' });
 };

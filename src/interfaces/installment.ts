@@ -6,5 +6,13 @@ export default interface IInstallment {
   client?: IClient;
   price: number;
   paymentDate: Date;
-  itsPaid: boolean;
+  itsPaid?: boolean;
+}
+
+export interface IBodyCreateInstallment {
+  clientId: number;
+  startDate?: string;
+  price: number;
+  quantity: number;
+  intervalDay: number;
 }
