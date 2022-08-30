@@ -1,3 +1,4 @@
+import cors from 'cors';
 import 'dotenv/config';
 import express, { Request, Response } from 'express';
 import 'express-async-errors';
@@ -9,6 +10,7 @@ const PORT = process.env.port || '3001';
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use('/client', clientRouter);
 app.use('/installment', installmentRouter);
