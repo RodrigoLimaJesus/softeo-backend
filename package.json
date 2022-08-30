@@ -2,7 +2,7 @@
   "name": "softeo-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "start": "npm run build && node ./dist/index.js",
     "dev": "npm run build && npm run db:seed && nodemon ./dist/index.js",
