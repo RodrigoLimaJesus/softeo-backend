@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-import IDateFilter from '../../interfaces/dateFilter';
 import IInstallment from '../../interfaces/installment';
+import { IDateFilter } from '../../interfaces/queryParams';
 
 export default class InstallmentModel {
   private _model;
@@ -41,5 +41,18 @@ export default class InstallmentModel {
     await this._prisma.$disconnect();
 
     return allInstallments;
+  };
+
+  updatePayment = async (id: number, status: boolean) => {
+    await this._prisma.$connect();
+
+    const updatedStatus = this._model.update({
+      where: { id },
+      data: { itsPaid: status },
+    });
+
+    await this._prisma.$disconnect();
+
+    return updatedStatus;
   };
 }

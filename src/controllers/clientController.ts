@@ -10,7 +10,7 @@ export default class ClientController {
 
     const newClient = await this._service.create(clientData);
 
-    return res.status(200).json(newClient);
+    return res.status(201).json(newClient);
   };
 
   getAll = async (_req: Request, res: Response) => {

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import IDateFilter from '../interfaces/dateFilter';
 import { IBodyCreateInstallment } from '../interfaces/installment';
+import { IDateFilter, IUpdateInfo } from '../interfaces/queryParams';
 import InstallmentService from '../services/installmentService';
 
 export default class InstallmentController {
@@ -19,6 +19,14 @@ export default class InstallmentController {
 
     const allInstallments = await this._service.createMany(infoToCreate);
 
-    return res.status(200).json(allInstallments);
+    return res.status(201).json(allInstallments);
+  };
+
+  updatePayment = async (req: Request, res: Response) => {
+    const infoToUpdate = req.query as IUpdateInfo;
+
+    const updatedInfo = await this._service.updatePayment(infoToUpdate);
+
+    return res.status(200).json(updatedInfo);
   };
 }

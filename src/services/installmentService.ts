@@ -1,7 +1,7 @@
-import IDateFilter from '../interfaces/dateFilter';
 import IInstallment, {
   IBodyCreateInstallment,
 } from '../interfaces/installment';
+import { IDateFilter, IUpdateInfo } from '../interfaces/queryParams';
 import InstallmentModel from '../prisma/models/installmentModel';
 
 export default class InstallmentService {
@@ -30,5 +30,16 @@ export default class InstallmentService {
     }
 
     return this._model.createMany(newInstallments);
+  };
+
+  updatePayment = async (infoToUpdate: IUpdateInfo) => {
+    if (!infoToUpdate.id || !infoToUpdate.status) {
+      throw new Error('invalidInfoToUpdate');
+    }
+    const { id, status } = infoToUpdate;
+
+    const boolStatus: boolean = JSON.parse(status);
+
+    return this._model.updatePayment(Number(id), boolStatus);
   };
 }

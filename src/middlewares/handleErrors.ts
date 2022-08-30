@@ -42,6 +42,10 @@ const errors = {
     message: 'O número de parcelas tem que ser maior que 1',
     code: 400,
   },
+  invalidInfoToUpdate: {
+    message: 'O status de pagamento e o id da parcela devem ser informados.',
+    code: 400,
+  },
 };
 
 export default (

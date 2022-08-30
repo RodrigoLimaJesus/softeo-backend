@@ -8,4 +8,6 @@ installmentRouter.get('/all', installmentController.getAll);
 
 installmentRouter.post('/create', installmentController.createMany);
 
+installmentRouter.put('/', installmentController.updatePayment);
+
 export default installmentRouter;
