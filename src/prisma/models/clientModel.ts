@@ -22,17 +22,21 @@ export default class ClientModel {
   getAll = async () => {
     await this._prisma.$connect();
 
-    const allClients = await this._model.findMany();
+    const allClients = await this._model.findMany({
+      include: { installments: true },
+    });
 
     await this._prisma.$disconnect();
 
     return allClients;
   };
 
-  getOneByCpf = async (cpf: string) => {
+  getOneById = async (id: string) => {
     await this._prisma.$connect();
 
-    const clientData = await this._model.findUnique({ where: { cpf } });
+    const clientData = await this._model.findFirst({
+      where: { id: Number(id) },
+    });
 
     await this._prisma.$disconnect();
 

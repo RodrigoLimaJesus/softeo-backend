@@ -9,9 +9,9 @@ const clientMiddleware = new ClientMiddleware();
 clientRouter.get('/all', clientController.getAll);
 
 clientRouter.get(
-  '/:cpf',
-  clientMiddleware.validateCpf,
-  clientController.getOneByCpf,
+  '/:id',
+  clientMiddleware.validateId,
+  clientController.getOneById,
 );
 
 clientRouter.post(

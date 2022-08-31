@@ -12,8 +12,8 @@ export default class ClientService {
     return this._model.getAll();
   };
 
-  getOneByCpf = async (cpf: string) => {
-    const clientData = await this._model.getOneByCpf(cpf);
+  getOneById = async (id: string) => {
+    const clientData = await this._model.getOneById(id);
 
     if (!clientData) {
       throw new Error('clientNotFound');

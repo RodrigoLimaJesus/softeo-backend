@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run db:start",
     "start": "npm run build && node ./dist/index.js",
-    "dev": "npm run db:start && tsc && npm run db:seed && tsnd --exit-child index.ts",
+    "dev": "npm run db:start && tsc && npm run db:seed && tsnd --exit-child --debug index.ts",
     "postinstall": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prisma:generate": "prisma generate --schema=./src/prisma/schema.prisma",

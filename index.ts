@@ -18,7 +18,11 @@ app.use('/installment', installmentRouter);
 app.use(handleErrors);
 
 app.all('*', (_req: Request, res: Response) => {
-  return res.status(404).json({ message: 'Rota não encontrada' });
+  return res.status(404).json({
+    message:
+      'Rota não encontrada, por favor leia a documentação para ver as rotas disponíveis.',
+    docs: 'https://github.com/RodrigoLimaJesus/softeo-backend',
+  });
 });
 
 app.listen(PORT, () => {

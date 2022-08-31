@@ -13,6 +13,14 @@ const errors = {
     message: 'Nome do cliente deve conter pelo menos 3 caracteres',
     code: 400,
   },
+  idNotProvided: {
+    message: 'Id do cliente não informado',
+    code: 400,
+  },
+  idInvalidType: {
+    message: 'Id do cliente deve ser um inteiro',
+    code: 400,
+  },
   cpfNotProvided: {
     message: 'CPF do cliente não informado',
     code: 400,
