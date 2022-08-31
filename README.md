@@ -124,31 +124,6 @@ O banco de dados é composto por duas tabelas, a `Client` e a `Installment`, e �
   ];
   ```
 
-- Listar todas as parcelas
-
-  ```javascript
-  // Url: https://softeo-rodrigolimajesus.herokuapp.com/installment/all
-  // Método: GET
-  // Retorno esperado:
-  [
-    {
-      id: number,
-      clientId: number,
-      price: number,
-      paymentDate: string (date),
-      itsPaid: boolean,
-    },
-    {
-      id: number,
-      clientId: number,
-      price: number,
-      paymentDate: string (date),
-      itsPaid: boolean,
-    },
-    ...
-  ];
-  ```
-
   - Filtrar as parcelas por data
 
   `Obs: startDate e endDate são opcionais, e podem ser usados individualmente`
@@ -191,7 +166,7 @@ O banco de dados é composto por duas tabelas, a `Client` e a `Installment`, e �
   },
   ```
 
-  - Atualizar o status de pagamento de uma parcela
+  - Criar parcelas para um cliente
 
   ```javascript
   // Url: https://softeo-rodrigolimajesus.herokuapp.com/installment/create
