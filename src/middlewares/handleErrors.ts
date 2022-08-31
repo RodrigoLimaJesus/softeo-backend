@@ -51,7 +51,35 @@ const errors = {
     code: 400,
   },
   invalidInfoToUpdate: {
-    message: 'O status de pagamento e o id da parcela devem ser informados.',
+    message: 'O status de pagamento e o id da parcela devem ser informados',
+    code: 400,
+  },
+  invalidDateFormat: {
+    message: 'A data deve ter o formato YYYY/MM/DD',
+    code: 400,
+  },
+  priceNotProvided: {
+    message: 'O preço das parcelas deve ser informado',
+    code: 400,
+  },
+  priceInvalidType: {
+    message: 'O preço das parcelas deve ser um número',
+    code: 400,
+  },
+  quantityNotProvided: {
+    message: 'A quantidade de parcelas deve ser informada',
+    code: 400,
+  },
+  quantityInvalidType: {
+    message: 'A quantidade parcelas deve ser um número inteiro',
+    code: 400,
+  },
+  intervalNotProvided: {
+    message: 'O intervalo de dias entre as parcelas deve ser informado',
+    code: 400,
+  },
+  intervalInvalidType: {
+    message: 'O intervalo de dias entre as parcelas deve ser um número inteiro',
     code: 400,
   },
 };
