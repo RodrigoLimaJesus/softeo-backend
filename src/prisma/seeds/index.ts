@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function generateSeeds() {
-  await prisma.$connect();
-
   try {
+    await prisma.$connect();
+
     await prisma.installment.deleteMany();
     await prisma.client.deleteMany();
 
@@ -80,6 +80,7 @@ async function generateSeeds() {
     prisma.$disconnect();
   } catch (error) {
     console.log(error);
+
     prisma.$disconnect();
   }
 }
