@@ -4,7 +4,7 @@ Bem vindo(a). Este repositório contém o histórico de desenvolvimento da parte
 
 ## Importante!
 
-Os servidores do Heroku, onde nosso banco de dados está hospedado, podem demorar para responder a sua primeira requisição, pois para economia de dados os servidores ficam inativos até que alguém o acesse novamente, por isso, ao acessar a API pela primeira vez depois de algum tempo, por favor, aguarde.
+Os servidores do Heroku, onde nosso backend está hospedado, podem demorar para responder a sua primeira requisição, pois para economia de dados os servidores ficam inativos até que alguém o acesse novamente, por isso, ao acessar a API pela primeira vez depois de algum tempo, por favor, aguarde.
 
 ## Para rodar o projeto na sua máquina:
 
