@@ -155,7 +155,7 @@ O banco de dados é composto por duas tabelas, a `Client` e a `Installment`, e �
 
   ```javascript
   // Url: https://softeo-rodrigolimajesus.herokuapp.com/installment?id=1&status=true
-  // Método: GET
+  // Método: PUT
   // Retorno esperado:
   {
     id: number,
@@ -170,7 +170,7 @@ O banco de dados é composto por duas tabelas, a `Client` e a `Installment`, e �
 
   ```javascript
   // Url: https://softeo-rodrigolimajesus.herokuapp.com/installment/create
-  // Método: GET
+  // Método: POST
   // Corpo da requisição:
   {
     clientId: number,
