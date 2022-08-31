@@ -28,3 +28,5 @@ app.all('*', (_req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`Rodando na porta ${PORT}`);
 });
+
+export default app;
