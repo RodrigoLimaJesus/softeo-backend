@@ -36,6 +36,7 @@ export default class ClientModel {
 
     const clientData = await this._model.findFirst({
       where: { id: Number(id) },
+      include: { installments: true },
     });
 
     await this._prisma.$disconnect();
