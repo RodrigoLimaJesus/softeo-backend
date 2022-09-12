@@ -49,12 +49,12 @@ export default class ClientModel {
 
     await this._prisma.installment.deleteMany({ where: { clientId: id } });
 
-    const updatedStatus = this._model.delete({
+    const deleteStatus = this._model.delete({
       where: { id },
     });
 
     await this._prisma.$disconnect();
 
-    return updatedStatus;
+    return deleteStatus;
   };
 }
