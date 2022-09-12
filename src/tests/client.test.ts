@@ -15,7 +15,6 @@ import {
   clientNoEmail,
   clientNoName,
   clientNoNumber,
-  oneClient,
   validClient,
 } from './expects/clientExpects';
 
@@ -44,17 +43,16 @@ describe('Testes para rotas de cliente', () => {
   describe('Verifica os retornos ao buscar o cliente pelo Id', () => {
     it('Com id válido', async () => {
       chaiResponse = await chai.request(app).get('/client/all');
-      const bodyAllClients: IClient[] = chaiResponse.body;
-      const [{ id }] = bodyAllClients;
+      const [firstClient]: IClient[] = chaiResponse.body;
 
-      chaiResponse = await chai.request(app).get(`/client/${id}`);
+      chaiResponse = await chai.request(app).get(`/client/${firstClient.id}`);
       const bodyOneClient: IClient = chaiResponse.body;
 
       expect(bodyOneClient.id).exist;
-      expect(bodyOneClient.cpf).to.be.equal(oneClient.cpf);
-      expect(bodyOneClient.name).to.be.equal(oneClient.name);
-      expect(bodyOneClient.email).to.be.equal(oneClient.email);
-      expect(bodyOneClient.cellNumber).to.be.equal(oneClient.cellNumber);
+      expect(bodyOneClient.cpf).to.be.equal(firstClient.cpf);
+      expect(bodyOneClient.name).to.be.equal(firstClient.name);
+      expect(bodyOneClient.email).to.be.equal(firstClient.email);
+      expect(bodyOneClient.cellNumber).to.be.equal(firstClient.cellNumber);
     });
 
     it('Com id inválido', async () => {
@@ -62,7 +60,7 @@ describe('Testes para rotas de cliente', () => {
       const { message }: Error = chaiResponse.body;
 
       expect(message).exist;
-      expect(message).to.be.equal('Id do cliente deve ser um inteiro');
+      expect(message).to.be.equal('Id deve ser um inteiro');
     });
   });
 
@@ -183,5 +181,21 @@ describe('Testes para rotas de cliente', () => {
         'Nome do cliente deve conter pelo menos 3 caracteres',
       );
     });
+  });
+
+  it('Verifica se é possível deletar um cliente', async () => {
+    chaiResponse = await chai.request(app).get('/client/all');
+
+    const [firstClient]: IClient[] = chaiResponse.body;
+
+    chaiResponse = await chai.request(app).delete(`/client/${firstClient.id}`);
+
+    const body: IClient = chaiResponse.body;
+
+    expect(body.id).exist;
+    expect(body.cpf).to.be.equal(firstClient.cpf);
+    expect(body.name).to.be.equal(firstClient.name);
+    expect(body.email).to.be.equal(firstClient.email);
+    expect(body.cellNumber).to.be.equal(firstClient.cellNumber);
   });
 });

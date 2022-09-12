@@ -17,14 +17,6 @@ export const allClients: IClient[] = [
   },
 ];
 
-export const oneClient = {
-  id: 1,
-  cpf: '12332112332',
-  name: 'Rodrigo Lima',
-  email: 'test1@gmail.com',
-  cellNumber: '92912345678',
-};
-
 export const validClient = {
   cpf: '12345678912',
   name: 'Karolayne Limoeiro',
