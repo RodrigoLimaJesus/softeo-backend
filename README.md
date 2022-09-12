@@ -2,6 +2,8 @@
 
 Bem vindo(a). Este repositório contém o histórico de desenvolvimento da parte backend do teste técnico da empresa `Softeo Tecnologia`. Para acompanhar o deploy, clique [aqui](https://softeo-rodrigolimajesus.herokuapp.com/). Mas antes confira abaixo instruções importantes para o uso do projeto, bem como as rotas disponíveis na nossa API.
 
+Repositório frontend: https://github.com/RodrigoLimaJesus/softeo-frontend
+
 ## Importante!
 
 Os servidores do Heroku, onde nosso backend está hospedado, podem demorar para responder a sua primeira requisição, pois para economia de dados os servidores ficam inativos até que alguém o acesse novamente, por isso, ao acessar a API pela primeira vez depois de algum tempo, por favor, aguarde.
