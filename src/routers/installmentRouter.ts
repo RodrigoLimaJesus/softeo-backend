@@ -10,6 +10,12 @@ installmentRouter.get('/all', installmentController.getAll);
 
 installmentRouter.put('/', installmentController.updatePayment);
 
+installmentRouter.delete(
+  '/:id',
+  installmentMiddleware.validateId,
+  installmentController.exclude,
+);
+
 installmentRouter.use(
   installmentMiddleware.validateClientId,
   installmentMiddleware.validateStartDate,
@@ -17,6 +23,7 @@ installmentRouter.use(
   installmentMiddleware.validateQuantity,
   installmentMiddleware.validateIntervalDay,
 );
+
 installmentRouter.post('/create', installmentController.createMany);
 
 export default installmentRouter;

@@ -72,4 +72,16 @@ export default class InstallmentMiddleware {
       next();
     }
   };
+
+  validateId = (req: Request, _res: Response, next: NextFunction) => {
+    const { id } = req.params;
+
+    if (!id) {
+      throw new Error('idNotProvided');
+    } else if (!Number(id) || Number(id) % 1 !== 0) {
+      throw new Error('idInvalidType');
+    } else {
+      next();
+    }
+  };
 }

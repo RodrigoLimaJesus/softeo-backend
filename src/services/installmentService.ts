@@ -42,4 +42,11 @@ export default class InstallmentService {
 
     return this._model.updatePayment(Number(id), boolStatus);
   };
+
+  exclude = async (id: string) => {
+    const numericId = Number(id);
+    const excludeData = this._model.exclude(numericId);
+
+    return excludeData;
+  };
 }

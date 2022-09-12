@@ -23,4 +23,10 @@ clientRouter.post(
   clientController.create,
 );
 
+clientRouter.delete(
+  '/:id',
+  clientMiddleware.validateId,
+  clientController.exclude,
+);
+
 export default clientRouter;

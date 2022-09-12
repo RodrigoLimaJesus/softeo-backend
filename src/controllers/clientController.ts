@@ -26,4 +26,12 @@ export default class ClientController {
 
     return res.status(200).json(clientData);
   };
+
+  exclude = async (req: Request, res: Response) => {
+    const id = req.params.id as string;
+
+    const clientData = await this._service.exclude(id);
+
+    return res.status(200).json(clientData);
+  };
 }

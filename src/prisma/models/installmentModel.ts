@@ -55,4 +55,16 @@ export default class InstallmentModel {
 
     return updatedStatus;
   };
+
+  exclude = async (id: number) => {
+    await this._prisma.$connect();
+
+    const updatedStatus = this._model.delete({
+      where: { id },
+    });
+
+    await this._prisma.$disconnect();
+
+    return updatedStatus;
+  };
 }

@@ -43,4 +43,18 @@ export default class ClientModel {
 
     return clientData;
   };
+
+  exclude = async (id: number) => {
+    await this._prisma.$connect();
+
+    await this._prisma.installment.deleteMany({ where: { clientId: id } });
+
+    const updatedStatus = this._model.delete({
+      where: { id },
+    });
+
+    await this._prisma.$disconnect();
+
+    return updatedStatus;
+  };
 }

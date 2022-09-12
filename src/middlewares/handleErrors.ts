@@ -14,11 +14,11 @@ const errors = {
     code: 400,
   },
   idNotProvided: {
-    message: 'Id do cliente não informado',
+    message: 'Id não informado',
     code: 400,
   },
   idInvalidType: {
-    message: 'Id do cliente deve ser um inteiro',
+    message: 'Id deve ser um inteiro',
     code: 400,
   },
   cpfNotProvided: {
