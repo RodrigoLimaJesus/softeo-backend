@@ -1,6 +1,6 @@
 # Softeo Tecnologia - Backend
 
-Bem vindo(a). Este repositório contém o histórico de desenvolvimento da parte backend do teste técnico da empresa `Softeo Tecnologia`. Para acompanhar o deploy, clique [aqui](https://softeo-rodrigolimajesus.herokuapp.com/). Mas antes confira abaixo instruções importantes para o uso do projeto, bem como as rotas disponíveis na nossa API.
+Bem vindo(a). Este repositório contém o histórico de desenvolvimento da parte backend do teste técnico da empresa `Softeo Tecnologia`. Confira abaixo instruções importantes para o uso do projeto, bem como as rotas disponíveis na nossa API.
 
 Repositório frontend: https://github.com/RodrigoLimaJesus/softeo-frontend
 
